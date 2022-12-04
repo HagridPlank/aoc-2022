@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
+    // User inputs the day they want and the solutions for that day are displayed.
     public static void main(String[] args) throws FileNotFoundException {
         Scanner scan = new Scanner(System.in);
 
@@ -13,6 +14,7 @@ public class Main {
 
         System.out.printf("---- Day%s ----\n", input);
 
+        // Repeatedly asks for day until input is 0
         while (input != 0) {
             switch (input) {
                 case 1: Day1.run(); break;
