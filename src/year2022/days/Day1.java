@@ -32,7 +32,7 @@ public class Day1 {
     }
 
     public static int partOne(int[] arr) {
-        return arr[arr.length-1];
+        return arr[arr.length-2];
     }
 
     public static int partTwo(int[] arr) {
