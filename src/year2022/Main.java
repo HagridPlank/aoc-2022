@@ -7,21 +7,25 @@ import java.util.Scanner;
 public class Main {
     // User inputs the day they want and the solutions for that day are displayed.
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner scan = new Scanner(System.in);
-
-        System.out.print("Day: ");
-        int input = scan.nextInt();
-
-        System.out.printf("---- Day%s ----\n", input);
-
-        // Repeatedly asks for day until input is 0
-        while (input != 0) {
-            switch (input) {
-                case 1: Day1.run(); break;
-                case 2: Day2.run(); break;
-                case 3: Day3.run(); break;
-                case 4: Day4.run(); break;
-                case 5: Day5.run(); break;
+        int input = 0;
+        // Repeatedly asks for day until input is 0 or invalid
+        boolean running = true;
+        while (running) {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("--------------");
+            System.out.print("Day: ");
+            try {
+                input = scan.nextInt();
+                if (input != 0) {
+                    System.out.printf("---- Day %s ----\n", input);
+                }
+                switch (input) {
+                    case 0: running = false; break;
+                    case 1: Day1.run(); break;
+                    case 2: Day2.run(); break;
+                    case 3: Day3.run(); break;
+                    case 4: Day4.run(); break;
+                    case 5: Day5.run(); break;
 //                case 6: Day6.run(); break;
 //                case 7: Day7.run(); break;
 //                case 8: Day8.run(); break;
@@ -42,11 +46,11 @@ public class Main {
 //                case 23: Day23.run(); break;
 //                case 24: Day24.run(); break;
 //                case 25: Day25.run(); break;
-                default: System.out.println("not a day of christmas...");
+                    default: System.out.println("not a day of christmas...");
+                }
+            } catch (Exception e) {
+                System.out.println("Should be an integer...");
             }
-            System.out.print("--------------\n");
-            System.out.print("Day: ");
-            input = scan.nextInt();
         }
     }
 }
