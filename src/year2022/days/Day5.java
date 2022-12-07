@@ -65,7 +65,54 @@ public class Day5 {
         return result;
     }
 
-    public static Object partTwo(Object arr) {
-        return null;
+    public static Object partTwo(Scanner s) {
+        String result = "";
+
+        for (int i = 0; i < 10; i++) {
+            s.nextLine();
+        }
+
+        String[][] stringArrs = {
+                {"N","C","R","T","M","Z","P"},
+                {"D","N","T","S","B","Z"},
+                {"M","H","Q","R","F","C","T","G"},
+                {"G","R","Z"},
+                {"Z","N","R","H"},
+                {"F","H","S","W","P","Z","L","D"},
+                {"W","D","Z","R","C","G","M"},
+                {"S","J","F","L","H","W","Z","Q"},
+                {"S","Q","P","W","N"},};
+
+        List<Stack<String>> stacks = new ArrayList<>();
+        Stack<String> tempStack = new Stack<>();
+        for (int i = 0; i < 9; i++) {
+            Stack<String> currentStack = new Stack<>();
+            currentStack.addAll(Arrays.asList(stringArrs[i]));
+            stacks.add(currentStack);
+        }
+
+        while (s.hasNextLine()) {
+            s.next();
+            int val1 = s.nextInt();
+            s.next();
+            int val2 = s.nextInt();
+            s.next();
+            int val3 = s.nextInt();
+
+            for (int i = 0; i < val1; i++) {
+                tempStack.add(stacks.get(val2 - 1).pop());
+            }
+            for (int i = 0; i < val1; i++) {
+                stacks.get(val3 - 1).add(tempStack.pop());
+            }
+
+            result = "";
+            for (int i = 0; i < 9; i++) {
+                if (stacks.get(i).size() > 0) {
+                    result += stacks.get(i).peek();
+                }
+            }
+        }
+        return result;
     }
 }
