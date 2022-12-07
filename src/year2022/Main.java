@@ -21,7 +21,7 @@ public class Main {
                 case 2: Day2.run(); break;
                 case 3: Day3.run(); break;
                 case 4: Day4.run(); break;
-//                case 5: Day5.run(); break;
+                case 5: Day5.run(); break;
 //                case 6: Day6.run(); break;
 //                case 7: Day7.run(); break;
 //                case 8: Day8.run(); break;
