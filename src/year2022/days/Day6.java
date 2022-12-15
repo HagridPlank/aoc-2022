@@ -16,11 +16,11 @@ public class Day6 {
         System.out.printf("Part Two: %s\n", partTwo(input));
     }
 
-    public static int partOne(List<String> arr) {
-        int processed = 4;
-        for (int i = 0; i < arr.size() - 3; i++) {
-            Set<String> currentFour = new HashSet<>(arr.subList(i,i + 4));
-            if (currentFour.size() != 4) {
+    public static int findProcessed(List<String> arr, int length) {
+        int processed = length;
+        for (int i = 0; i < arr.size() - length - 1; i++) {
+            Set<String> currentFour = new HashSet<>(arr.subList(i,i + length));
+            if (currentFour.size() != length) {
                 processed++;
             } else {
                 return processed;
@@ -29,7 +29,11 @@ public class Day6 {
         return processed;
     }
 
+    public static int partOne(List<String> arr) {
+        return findProcessed(arr, 4);
+    }
+
     public static Object partTwo(List<String> arr) {
-        return null;
+        return findProcessed(arr, 14);
     }
 }
