@@ -2,12 +2,13 @@ package year2022;
 
 import year2022.days.*;
 import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
     // User inputs the day they want and the solutions for that day are displayed.
     public static void main(String[] args) throws FileNotFoundException {
-        int input = 0;
+        int input;
         // Repeatedly asks for day until input is 0 or invalid
         boolean running = true;
         while (running) {
@@ -48,7 +49,7 @@ public class Main {
 //                case 25: Day25.run(); break;
                     default: System.out.println("not a day of christmas...");
                 }
-            } catch (Exception e) {
+            } catch (InputMismatchException e) {
                 System.out.println("Should be an integer...");
             }
         }
