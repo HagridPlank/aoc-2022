@@ -2,10 +2,7 @@ package year2022.days;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Day6 {
     public static void run() throws FileNotFoundException {
@@ -19,8 +16,17 @@ public class Day6 {
         System.out.printf("Part Two: %s\n", partTwo(input));
     }
 
-    public static Object partOne(List<String> arr) {
-        return arr;
+    public static int partOne(List<String> arr) {
+        int processed = 4;
+        for (int i = 0; i < arr.size() - 3; i++) {
+            Set<String> currentFour = new HashSet<>(arr.subList(i,i + 4));
+            if (currentFour.size() != 4) {
+                processed++;
+            } else {
+                return processed;
+            }
+        }
+        return processed;
     }
 
     public static Object partTwo(List<String> arr) {
